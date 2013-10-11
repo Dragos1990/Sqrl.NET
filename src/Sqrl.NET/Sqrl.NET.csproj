@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Ed25519.cs" />
+    <Compile Include="EncodingUtils.cs" />
+    <Compile Include="SqrlUrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqrlUtils.cs" />
+    <Compile Include="UrlUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\lib\libsodium-net\libsodium-net\libsodium-net.csproj">
+      <Project>{48c1df3f-2e09-4088-89b2-6e1b058e3100}</Project>
+      <Name>libsodium-net</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
