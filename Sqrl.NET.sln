@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqrl.NET", "Sqrl.NET\Sqrl.NET.csproj", "{301A248B-F59A-4B7E-B01A-0A6B5E7D574C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqrl.NET", "src\Sqrl.NET\Sqrl.NET.csproj", "{301A248B-F59A-4B7E-B01A-0A6B5E7D574C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
