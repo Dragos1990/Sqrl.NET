@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Sqrl.NET.Tests {
 	[TestClass]
+	// Testing VS Git Integration
 	public class SqrlUrlTests {
 		private string ValidChallengeUri = "sqrl://domain.com/path/sqlrauth.ext?" +
 		                                   "d=5" +
@@ -24,7 +25,7 @@ namespace Sqrl.NET.Tests {
 
 		[TestMethod]
 		public void Constructor() {
-			var url = new SqrlUrl(ValidResponseUri);
+			var url = new SqrlUrl(ValidResponseUri); 
 			Assert.AreEqual(5, url.Depth);
 			Assert.AreEqual("domain.com/path", url.Domain);
 			Assert.AreEqual("127.0.0.1", url.IpAddress.ToString());
