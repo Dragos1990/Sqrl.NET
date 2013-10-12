@@ -1,6 +1,0 @@
-﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="Sqrl.NET WP8" EntryPointType="Sqrl.NET_WP8.App" RuntimeVersion="4.7.50308.0">
-  <Deployment.Parts>
-    <AssemblyPart x:Name="Sqrl.NET WP8" Source="Sqrl.NET WP8.dll" />
-    <AssemblyPart x:Name="zxing.wp8.0" Source="zxing.wp8.0.dll" />
-  </Deployment.Parts>
-</Deployment>
