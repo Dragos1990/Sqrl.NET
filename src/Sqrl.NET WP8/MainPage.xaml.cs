@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows;
+using System.Net;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using System.Windows.Threading;
@@ -12,6 +12,7 @@ using ZXing.Common;
 using ZXing.QrCode;
 
 namespace Sqrl.NET_WP8 {
+
 	public partial class MainPage : PhoneApplicationPage {
 		private readonly ObservableCollection<string> _matches;
 		private readonly DispatcherTimer _timer;
@@ -32,9 +33,6 @@ namespace Sqrl.NET_WP8 {
 		}
 
 		protected override void OnNavigatedTo(NavigationEventArgs e) {
-			var app = Application.Current as App;
-//			app.ScannedValue = string.Empty;
-
 			_photoCamera = new PhotoCamera();
 			_photoCamera.Initialized += OnPhotoCameraInitialized;
 			_previewVideo.SetSource(_photoCamera);
@@ -45,9 +43,7 @@ namespace Sqrl.NET_WP8 {
 		}
 
 		private void DisplayResult(string text) {
-			if (!_matches.Contains(text)) {
-				_matches.Add(text);
-			}
+			_matches.Add(text);
 		}
 
 		private void OnPhotoCameraInitialized(object sender, CameraOperationCompletedEventArgs e) {
@@ -71,12 +67,13 @@ namespace Sqrl.NET_WP8 {
 				var result = _reader.decode(binBitmap);
 				if (result != null) {
 					Dispatcher.BeginInvoke(() => DisplayResult(result.Text));
+					var client = new WebClient();
+					var sqrl = new SqrlUrl(result.Text);
+					var nonce = SqrlUtils.CreateClientNonce();
+					client.DownloadStringAsync(new Uri(sqrl.GetClientResponse(nonce)));
 				}
 			} catch {
 			}
-		}
-
-		private void foundList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 		}
 	}
 }

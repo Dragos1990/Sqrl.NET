@@ -23,7 +23,6 @@ namespace Sqrl.NET.Web.App.Controllers {
 		public const string Xml = "text/xml";
 	}
 	public class AccountController : Controller {
-		[HttpPost]
 		public ActionResult Login(LoginModel model) {
 			FormsAuthentication.SetAuthCookie(model.Username, false);
 
@@ -31,7 +30,9 @@ namespace Sqrl.NET.Web.App.Controllers {
 		}
 
 		public ActionResult QrCode() {
-			var qrCode = QrUtils.GenerateQr("http://www.sciencetrax.com", ImageFormat.Png);
+			var uri = Request.Url;
+			var url = string.Format("{0}://{1}{3}/{4}", uri.Scheme, uri.Host, uri.Port, Request.ApplicationPath, "Account/Login?username=UN&password=PW");
+			var qrCode = QrUtils.GenerateQr(url, ImageFormat.Png);
 			return File(qrCode, MimeType.Pdf, "login.png");
 		}
 	}
