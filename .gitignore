@@ -5,3 +5,8 @@ obj
 /src/Sqrl.NET.Web.App/bin
 /src/Sqrl.NET.WP8.App/Bin
 /src/Sqrl.NET.WP8/Bin
+/src/Sqrl.NET/bin
+
+/src/Sqrl.NET.Tests/bin
+
+/src/Sqrl.NET.Web.App.Tests/bin
