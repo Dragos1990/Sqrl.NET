@@ -1,0 +1,29 @@
+﻿@model Sqrl.NET.Web.App.Models.LoginModel
+
+<h1>Login Page</h1>
+
+<table style="margin-left: auto; margin-right: auto;">
+	<tr>
+		<td>
+			<img src="@Url.Action("QrCode", "Account")"/>
+		</td>
+		<td>
+			<form action="@Url.Action("Login", "Account")" method="POST">
+				<fieldset>
+					<div>
+						<div>@Html.LabelFor(v => v.Username)</div>
+						<div>@Html.TextBoxFor(v => v.Username)</div>
+					</div>
+					<div>
+						<div>@Html.LabelFor(v => v.Password)</div>
+						<div>@Html.PasswordFor(v => v.Password)</div>
+					</div>
+					<div>
+						<input type="submit" value="Login" />
+					</div>
+				</fieldset>
+
+			</form>			
+		</td>
+	</tr>
+</table>

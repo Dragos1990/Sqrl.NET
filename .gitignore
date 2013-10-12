@@ -1,3 +1,5 @@
 obj
 *.suo
 /src/Sqrl.NET WP8/Bin
+
+/src/Sqrl.NET.Web.App/bin

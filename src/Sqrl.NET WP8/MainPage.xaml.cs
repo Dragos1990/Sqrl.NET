@@ -6,36 +6,12 @@ using System.Windows.Navigation;
 using System.Windows.Threading;
 using Microsoft.Devices;
 using Microsoft.Phone.Controls;
+using Sqrl.NET;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
 
 namespace Sqrl.NET_WP8 {
-	public class PhotoLuminanceSource : LuminanceSource {
-		public byte[] PreviewBufferY { get; set; }
-
-		public override byte[] Matrix {
-			get { return (byte[]) (Array) PreviewBufferY; }
-		}
-
-		public PhotoLuminanceSource(int width, int height)
-			: base(width, height) {
-			PreviewBufferY = new byte[width*height];
-		}
-
-		public override byte[] getRow(int y, byte[] row) {
-			if (row == null || row.Length < Width) {
-				row = new byte[Width];
-			}
-
-			for (var i = 0; i < Height; i++) {
-				row[i] = (byte) PreviewBufferY[i*Width + y];
-			}
-
-			return row;
-		}
-	}
-
 	public partial class MainPage : PhoneApplicationPage {
 		private readonly ObservableCollection<string> _matches;
 		private readonly DispatcherTimer _timer;
